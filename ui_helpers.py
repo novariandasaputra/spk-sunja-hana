@@ -83,16 +83,15 @@ def render_kpi_card(col, icon_key: str, value, label: str, accent: str, bg: str,
 
 def _kpi_card_html(icon_key: str, value, label: str, accent: str, bg: str, text_color: str) -> str:
     svg = SVG_ICONS.get(icon_key, SVG_ICONS["folder"])
-    return f"""
-    <div class="kpi-card" style="background:linear-gradient(135deg, #FFFFFF 0%, {bg}55 100%);
-                                 border-left:4px solid {accent};">
-        <div class="kpi-icon" style="background:{bg}; color:{text_color};">{svg}</div>
-        <div style="min-width:0;flex:1;">
-            <div class="kpi-value">{value}</div>
-            <div class="kpi-label">{label}</div>
-        </div>
-    </div>
-    """
+    return (
+        f'<div class="kpi-card" style="background:linear-gradient(135deg, #FFFFFF 0%, {bg}55 100%);'
+        f'border-left:4px solid {accent};">'
+        f'<div class="kpi-icon" style="background:{bg}; color:{text_color};">{svg}</div>'
+        f'<div style="min-width:0;flex:1;">'
+        f'<div class="kpi-value">{value}</div>'
+        f'<div class="kpi-label">{label}</div>'
+        f'</div></div>'
+    )
 
 
 def render_kpi_grid(items: list):
