@@ -62,7 +62,8 @@ header[data-testid="stHeader"],
 section[data-testid="stSidebar"],
 [data-testid="stExpandSidebarButton"],
 [data-testid="stSidebarNav"],
-[data-testid="stDecoration"] {
+[data-testid="stDecoration"],
+[data-testid="InputInstructions"] {
     display: none !important;
 }
 
