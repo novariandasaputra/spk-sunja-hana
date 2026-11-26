@@ -386,49 +386,28 @@ def show():
             for i, (lbl, w) in enumerate(zip(cols_l, weights))
         ])
 
-        st.markdown(f"""
-        <div class="soft-card" style="padding:1.75rem 2rem;min-height:420px;">
-            <div style="text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #E2ECF5;">
-                <h3 style="color:#243B53;font-weight:700;font-size:1.1rem;margin:0 0 0.25rem;">
-                    Laporan Analisis SPK Sunja Hana
-                </h3>
-                <p style="color:#627D98;font-size:0.83rem;margin:0;">
-                    Periode: {period}
-                </p>
-                <p style="color:#829AB1;font-size:0.76rem;margin:0.2rem 0 0;">
-                    ID Analisis: {aid} &nbsp;•&nbsp; Dicetak: {datetime.now().strftime('%d %B %Y')}
-                </p>
-            </div>
-
-            <p style="font-weight:600;color:#243B53;font-size:0.88rem;margin-bottom:0.4rem;">
-                Peringkat Prioritas Kategori
-            </p>
-            <div style="overflow-x:auto;margin-bottom:1.25rem;">
-                <table style="width:100%;border-collapse:collapse;font-size:0.82rem;border:1px solid #E2ECF5;">
-                    <thead>
-                        <tr style="background:#EAF2FB;color:#243B53;">
-                            <th style="padding:0.5rem 0.6rem;text-align:center;">Rank</th>
-                            <th style="padding:0.5rem 0.6rem;text-align:left;">Kategori</th>
-                            <th style="padding:0.5rem 0.6rem;text-align:center;">Vi</th>
-                        </tr>
-                    </thead>
-                    <tbody>{rank_rows}</tbody>
-                </table>
-            </div>
-
-            <p style="font-weight:600;color:#243B53;font-size:0.88rem;margin-bottom:0.4rem;">
-                Bobot Kriteria (CRITIC)
-            </p>
-            <div style="overflow-x:auto;">
-                <table style="width:100%;border-collapse:collapse;font-size:0.82rem;border:1px solid #E2ECF5;">
-                    <thead>
-                        <tr style="background:#EAF2FB;color:#243B53;">
-                            <th style="padding:0.5rem 0.6rem;text-align:left;">Kriteria</th>
-                            <th style="padding:0.5rem 0.6rem;text-align:center;">Bobot</th>
-                        </tr>
-                    </thead>
-                    <tbody>{w_rows}</tbody>
-                </table>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f'<div class="soft-card" style="padding:1.75rem 2rem;min-height:420px;">'
+            f'<div style="text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #E2ECF5;">'
+            f'<h3 style="color:#243B53;font-weight:700;font-size:1.1rem;margin:0 0 0.25rem;">Laporan Analisis SPK Sunja Hana</h3>'
+            f'<p style="color:#627D98;font-size:0.83rem;margin:0;">Periode: {period}</p>'
+            f'<p style="color:#829AB1;font-size:0.76rem;margin:0.2rem 0 0;">ID Analisis: {aid} &nbsp;&bull;&nbsp; Dicetak: {datetime.now().strftime("%d %B %Y")}</p>'
+            f'</div>'
+            f'<p style="font-weight:600;color:#243B53;font-size:0.88rem;margin-bottom:0.4rem;">Peringkat Prioritas Kategori</p>'
+            f'<div style="overflow-x:auto;margin-bottom:1.25rem;">'
+            f'<table style="width:100%;border-collapse:collapse;font-size:0.82rem;border:1px solid #E2ECF5;">'
+            f'<thead><tr style="background:#EAF2FB;color:#243B53;">'
+            f'<th style="padding:0.5rem 0.6rem;text-align:center;">Rank</th>'
+            f'<th style="padding:0.5rem 0.6rem;text-align:left;">Kategori</th>'
+            f'<th style="padding:0.5rem 0.6rem;text-align:center;">Vi</th>'
+            f'</tr></thead><tbody>{rank_rows}</tbody></table></div>'
+            f'<p style="font-weight:600;color:#243B53;font-size:0.88rem;margin-bottom:0.4rem;">Bobot Kriteria (CRITIC)</p>'
+            f'<div style="overflow-x:auto;">'
+            f'<table style="width:100%;border-collapse:collapse;font-size:0.82rem;border:1px solid #E2ECF5;">'
+            f'<thead><tr style="background:#EAF2FB;color:#243B53;">'
+            f'<th style="padding:0.5rem 0.6rem;text-align:left;">Kriteria</th>'
+            f'<th style="padding:0.5rem 0.6rem;text-align:center;">Bobot</th>'
+            f'</tr></thead><tbody>{w_rows}</tbody></table></div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
