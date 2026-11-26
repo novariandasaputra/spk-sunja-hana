@@ -21,16 +21,16 @@ if not st.session_state.get("db_initialized"):
     init_db()
     st.session_state.db_initialized = True
 
-# ── Load CSS (cached) ─────────────────────────────────────────────────────────
+# ── Load CSS (cached, invalidated on file change) ─────────────────────────────
 @st.cache_data
-def _read_css(path: str) -> str:
+def _read_css(path: str, mtime: float) -> str:
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
 def load_css():
     css_path = os.path.join(os.path.dirname(__file__), "assets", "style.css")
     if os.path.exists(css_path):
-        st.markdown(f"<style>{_read_css(css_path)}</style>", unsafe_allow_html=True)
+        st.markdown(f"<style>{_read_css(css_path, os.path.getmtime(css_path))}</style>", unsafe_allow_html=True)
 
 load_css()
 
